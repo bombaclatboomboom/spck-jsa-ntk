@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2{
+            color: blue;
+            text-align: center;
+            font-size: 30px;
+        }
+        h3{
+            color: red;
+            text-align: center;
+            font-size: 20px;
+        }
+        .container{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .product{
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 10px;
+            width: 320px;
+            box-shadow: 2px 2px 12px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .product img{
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>Shop for the best pc in the world</h2>
+    <h3>Here are some of the best pc configurations (all types) for you to choose from:</h3>
+    <div class="container", id="product-list"> </div>
+    
+    <script>
+        //1. Dữ liệu
+        let bộPC1 = {
+            Name: "Gaming PC",
+            CPU: "i9 14900K",
+            RAM: "64GB",
+            Storage: "1TB SSD",
+            GPU: "NVIDIA GeForce RTX 5080",
+            PowerSupply: "1000W Gold/Platinum",
+            Price: "$4000",
+            img: "https://product.hstatic.net/200000837185/product/pc_gaming_core_i9_14900k_rtx_5080_4677bc837e834317972a8993a233260f_master.png"
+        };        
+        console.log(bộPC1);
+        let bộPC2 = {
+            Name: "Blender Workstation",
+            CPU: "AMD Ryzen 9 7950X3D",
+            RAM: "128GB",
+            Storage: "2TB NVMe SSD + 4TB HDD",
+            GPU: "NVIDIA RTX A6000",
+            PowerSupply: "1200W Platinum",
+            Price: "$7000",
+            img: "https://pcmarket.vn/media/product/10626_worksatation_pcm.jpg"
+        };
+        console.log(bộPC2);
+        let bộPC3 = {
+            Name: "Content Creation PC",
+            CPU: "Intel Core i7-13700K",
+            RAM: "32GB",
+            Storage: "1TB NVMe SSD",
+            GPU: "NVIDIA GeForce RTX 4070 Ti",
+            PowerSupply: "750W Gold",
+            Price: "$2500",
+            img: "https://c1.neweggimages.com/productimage/nb1280/ADFRD2508081483J2AD.jpg"
+        };
+        console.log(bộPC3);
+        let bộPC4 = {
+            Name: "High-end PC",
+            CPU: "AMD Ryzen 7 7800X3D",
+            RAM: "32GB",
+            Storage: "1TB NVMe SSD",
+            GPU: "NVIDIA GeForce RTX 4090 Ti",
+            PowerSupply: "8000W Gold",
+            Price: "$3500",
+            img: "https://www.techtesters.eu/pic/LETSSTREAM/3030.jpg"
+        };
+        let PC = [bộPC1, bộPC2, bộPC3, bộPC4];
+        console.log(PC);
+        //2. Lấy thẻ container
+        let container = document.getElementById("product-list");
+        //3. Lập trình đẩy dữ liệu
+        for(let i = 0; i < PC.length; i++){
+            let product = PC[i];
+            let productHTML = 
+            `<div class="product">
+                <img src="${product.img}" alt="${product.Name}" width="280" style="margin-bottom: 12px; border-radius: 8px;">
+                <h3>${product.Name}</h3>
+                <ul style="text-align: left;">
+                    <li><strong>CPU:</strong> ${product.CPU}</li>
+                    <li><strong>RAM:</strong> ${product.RAM}</li>
+                    <li><strong>Storage:</strong> ${product.Storage}</li>
+                    <li><strong>GPU:</strong> ${product.GPU}</li>
+                    <li><strong>Power Supply:</strong> ${product.PowerSupply}</li> 
+                    <li><strong>Price:</strong> ${product.Price}</li>
+                </ul>
+                <button style="margin-top: 14px; padding: 8px 18px; background: #2d3a8c; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-size: 15px;">Buy Now</button>
+            </div>`
+            container.innerHTML += productHTML;
+                            }
+    </script>
+</body>
+</html>

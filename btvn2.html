@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+    <script>
+        const mixedArray = [
+            "Xin chào", 42, "JavaScript",
+            "React", 2023, "Node.js", 3.14,
+        ];
+        
+        console.log("========== MẢNG KẾT HỢP CHỮ VÀ SỐ ==========");
+        console.log("Mảng đầy đủ:", mixedArray);
+        console.log("Độ dài mảng:", mixedArray.length);
+        console.log("--------------------------------------------");
+
+        console.log("Duyệt từng phần tử trong mảng:");
+        for (let i = 0; i < mixedArray.length; i++) {
+            console.log(`Phần tử ${i}: ${mixedArray[i]} (kiểu: ${typeof mixedArray[i]})`);
+        }
+        
+        console.log("--------------------------------------------");
+
+        const numbers = mixedArray.filter(item => typeof item === 'number');
+        const strings = mixedArray.filter(item => typeof item === 'string');
+        
+        console.log("Các phần tử là số:", numbers);
+        console.log("Các phần tử là chuỗi:", strings);
+        console.log("Tổng các số trong mảng:", numbers.reduce((sum, num) => sum + num, 0));
+        
+        console.log("============================================");
+    </script>
+</body>
+</html>

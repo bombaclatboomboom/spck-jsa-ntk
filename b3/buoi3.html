@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        // let a=5
+        // console.log(6==7)
+        // // Bieu thuc logic: true hoac false
+        // if (a > "7") {
+        //     console.log(">7")
+        // }
+        // else if (a == 7){
+        //     console.log("=7")
+        // }
+        // else{
+        //     console.log("Dieu kien sai")
+        // }
+
+        //  for (let a = 0; a<5; i++) {
+        //     console.log(i)
+        //  }
+
+         // i = 0
+         // in ra mh
+         // i = 1
+
+         let Lophoc = [
+            "Lop mot",
+            "Lop hai",
+            "Lop ba",
+            "Lop bon",
+            "Lop nam",            
+            {
+            tuoi6: "Lop mot",
+            tuoi7: "Lop hai",
+            tuoi8: "Lop ba",
+            },
+            {
+            hocsinh1: "An",
+            hocsinh2: "Thang",
+            hocsinhba: "Duong",
+            },
+         ];
+        Lophoc.splice(0,1);
+        Lophoc.push("Lop sau");
+        Lophoc.unshift('Mau giao');
+        console.log("Mảng đầy đủ:", Lophoc);
+        console.log(Lophoc[0])
+
+        function abcd (a, b) {
+            let tong = a + b
+            return tong
+        }
+        let tong2 = abcd(4,7)
+
+        abcd(8,5)
+
+        function tbc (a, b, c) {
+            let tbc = (a+b+c)/3
+            return tbc
+        }
+        let tbc2 = tbc(4,5,6)
+        console.log(tbc2)
+         // btvn: nghĩ trong student tao mang dia chi, tuoi, sdt, ten roi them value vao xong lay cac key ra, dung for de duyet mang va in ra tung gia tri
+    </script>
+</body>
+</html>

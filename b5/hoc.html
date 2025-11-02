@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #input{
+            width: 300px;
+            height: 30px;
+            font-size: 20px;
+            border-radius: 10px;
+            padding: 0% 10px;
+        }
+        #Submit{
+            width: 100px;
+            height: 30px;
+            font-size: 20px;
+            border-radius: 10px;
+            background-color: rgb(0, 255, 255);
+        }
+        #Remove{
+            width: 100px;
+            height: 30px;
+            font-size: 20px;
+            border-radius: 10px;
+            background-color: rgb(255, 0, 0);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Hãy khởi tạo một Array Numbers</h1>
+    <h1>Khi nhập số vào ô và submit, kết quả của array hiện ra trên màn hình</h1>
+    <input type="text" id="input">
+    <button id = "Submit">Submit</button>
+    <button id = "Remove">Remove </button>
+    <h2 id="result">Danh sach phan tu trong Array</h2>
+    <script>
+        let numbers = [];
+        const btn = document.getElementById("Submit");
+        document.getElementById("Submit").onclick = function()
+        {   const input = document.getElementById("input").value;
+            // Đẩy number vào mảng
+            numbers.push(input);
+            console.log(numbers);
+            document.getElementById("result").innerText = "Danh sach phan tu trong Array: " + numbers;
+
+        };
+        document.getElementById("Remove").onclick = function()
+        {const input = document.getElementById("input").value;
+            numbers.pop(input);
+            document.getElementById("result").innerText = "Danh sach phan tu trong Array: " + numbers;
+        }
+
+    </script>
+</body>
+</html>

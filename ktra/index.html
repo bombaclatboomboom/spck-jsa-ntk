@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Lật Thẻ Đơn Giản</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; background: #eee; }
+        #result { margin: 10px 0; font-size: 20px; }
+        #score { font-weight: bold; }
+        #grid {
+            display: grid;
+            grid-template-columns: repeat(4, 80px);
+            gap: 10px;
+            justify-content: center;
+            margin: 20px auto;
+        }
+        .card {
+            width: 80px; height: 80px;
+            background: #ff4757;
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; font-size: 14px; color: #fff;
+            flex-direction: column;
+            position: relative;
+        }
+        .card img {
+            width: 40px; height: 40px; margin-bottom: 5px; display: none;
+        }
+        .card.flipped img {
+            display: block;
+        }
+        .card.flipped {
+            background: #2ed573;
+            color: #333;
+        }
+        .card.matched {
+            background: #eee;
+            color: #eee;
+            pointer-events: none;
+        }
+        #message {
+            margin: 10px 0;
+            color: #ff4757;
+            font-size: 16px;
+            min-height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="result">Điểm: <span id="score">0</span></div>
+    <div id="message"></div>
+    <div id="grid"></div>
+    <script>
+        var cardData = [
+            {name: 'Ronaldo', img: 'https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg'},
+            {name: 'Messi', img: 'https://upload.wikimedia.org/wikipedia/commons/8/89/Leo_Messi_20180626.jpg'},
+            {name: 'Neymar', img: 'https://upload.wikimedia.org/wikipedia/commons/5/5c/Neymar_2018.jpg'},
+            {name: 'Mbappe', img: 'https://upload.wikimedia.org/wikipedia/commons/a/a8/Kylian_Mbapp%C3%A9_2019.jpg'},
+            {name: 'Haaland', img: 'https://upload.wikimedia.org/wikipedia/commons/8/8c/Erling_Haaland_2020.jpg'},
+            {name: 'Vini', img: 'https://upload.wikimedia.org/wikipedia/commons/7/7e/Vinicius_Jr_2022.jpg'},
+            {name: 'Maguire', img: 'https://upload.wikimedia.org/wikipedia/commons/2/2e/Harry_Maguire_2018.jpg'},
+            {name: 'Musiala', img: 'https://upload.wikimedia.org/wikipedia/commons/2/2d/Jamal_Musiala_2022.jpg'}
+        ];
+        var cards = cardData.concat(cardData);
+        cards.sort(function(){ return Math.random() - 0.5; });
+
+        var score = 0;
+        var flipped = [];
+        var grid = document.getElementById('grid');
+        var scoreEl = document.getElementById('score');
+        var messageEl = document.getElementById('message');
+
+        function renderCards() {
+            grid.innerHTML = '';
+            for(var i=0;i<cards.length;i++){
+                var d = document.createElement('div');
+                d.className = 'card';
+                d.setAttribute('data-index',i);
+
+                var img = document.createElement('img');
+                img.src = cards[i].img;
+                img.alt = cards[i].name;
+
+                var span = document.createElement('span');
+                span.textContent = '?';
+
+                d.appendChild(img);
+                d.appendChild(span);
+
+                d.addEventListener('click', function(){
+                    cardClick(this);
+                });
+                grid.appendChild(d);
+            }
+        }
+        renderCards();
+
+        function cardClick(cardDiv){
+            var idx = cardDiv.getAttribute('data-index');
+            if(cardDiv.classList.contains('flipped') || cardDiv.classList.contains('matched')) return;
+            cardDiv.classList.add('flipped');
+            cardDiv.querySelector('span').textContent = cards[idx].name;
+
+            flipped.push(cardDiv);
+
+            if(flipped.length==2){
+                var idx1 = flipped[0].getAttribute('data-index');
+                var idx2 = flipped[1].getAttribute('data-index');
+                if(cards[idx1].name == cards[idx2].name){
+                    setTimeout(function(){
+                        flipped[0].classList.add('matched');
+                        flipped[1].classList.add('matched');
+                        messageEl.textContent = 'Chính xác!';
+                        score += 10;
+                        scoreEl.textContent = score;
+                        flipped = [];
+                    }, 800);
+                }else{
+                    setTimeout(function(){
+                        flipped[0].classList.remove('flipped');
+                        flipped[1].classList.remove('flipped');
+                        flipped[0].querySelector('span').textContent = '?';
+                        flipped[1].querySelector('span').textContent = '?';
+                        messageEl.textContent = 'Sai rồi, thử lại nhé!';
+                        flipped = [];
+                    }, 800);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
