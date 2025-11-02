@@ -39,14 +39,15 @@ filmDetail.innerHTML = `
                     <span>${(data.vote_average)} / 10</span>
                 </div>
             </div>
-            <h3 class="tagline" style="color:red">"${data.tagline}"</h2>
-            <p class="synopsis">${data.overview }</p>
-            <p class="genres"><div
-
+            <h3 class="tagline" style="color:red">"${data.tagline}"</h2>            
+            <p class="synopsis">${data.overview }</p>    
+            <p class="genres"><strong>🎬 Genres:</strong> ${data.genres.map(genre => genre.name).join(', ')}</p>        
+            <p class="runtime"><strong>⌛ Runtime:</strong> ${data.runtime} minutes</p>
+            <p class="release_date"><strong>📅 Release Date:</strong> ${data.release_date}</p>
             <div class="actions">
                 <button class="btn primary">Watch Now 🎥</button>
-                <button class="btn primary"><a href="${data.homepage}" >Visit Homepage 🌐</a></button>
-                <button class="btn primary"><a href="${data.credit}" >View Cast 👥</a></button>
+                <button class="btn secondary" onclick="window.location.href='cast.html?id=${data.id}'">View Cast 👤</button>
+                <button class="btn secondary" onclick="window.location.href='index.html'">Back to Home 🏠</button>
             </div>
         </div>
     </div>

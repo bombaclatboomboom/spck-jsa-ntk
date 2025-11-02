@@ -130,6 +130,30 @@ html,body{
     overflow: hidden;
 }
 
+.casts-container {
+  margin-top: 80px;
+  padding: 0 80px;
+}
+
+.casts-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+
+.casts-grid > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.casts-grid > div img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+}
 /* Poster column */
 .poster{
     min-width: 220px;
@@ -202,6 +226,14 @@ html,body{
     font-size: 13px;
     border: 1px solid rgba(255,255,255,0.02);
 }
+#genres {
+  background: var(--dark-lighten);
+  border: 1px solid white;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  white-space: nowrap;
+}
+
 
 /* Synopsis */
 .synopsis{
@@ -248,6 +280,9 @@ html,body{
         flex-direction: column;
         align-items: stretch;
         padding: 16px;
+    }
+    .casts-container {
+    padding: 0 30px;
     }
     .poster{
         width: 100%;
