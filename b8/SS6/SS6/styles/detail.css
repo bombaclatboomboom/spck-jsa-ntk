@@ -130,29 +130,53 @@ html,body{
     overflow: hidden;
 }
 
-.casts-container {
-  margin-top: 80px;
-  padding: 0 80px;
+/* Cast Section Styling */
+.cast-section {
+    padding: 20px;
+    margin-top: 30px;
 }
 
-.casts-grid {
-  display: grid;
-  gap: 24px;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+.cast-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #fff; /* Or your theme's text color */
 }
 
-.casts-grid > div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
+.cast-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 20px;
 }
 
-.casts-grid > div img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 12px;
+.cast-card {
+    background-color: #1c1c1c; /* A dark background for the card */
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.cast-card:hover {
+    transform: scale(1.05);
+}
+
+.cast-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.cast-card .cast-name {
+    font-weight: bold;
+    font-size: 14px;
+    margin: 10px 5px 5px;
+    color: #fff;
+}
+
+.cast-card .cast-character {
+    font-size: 12px;
+    color: #aaa;
+    margin: 0 5px 10px;
 }
 /* Poster column */
 .poster{
@@ -362,4 +386,117 @@ footer a:hover{ color:#fff }
   #main{ margin:84px 12px 90px }
   .grid{ grid-template-columns: repeat(2,1fr) }
   .poster{ width:160px; height:240px }
+}
+
+/* Comments Section Styling */
+.comments-section {
+    padding: 20px;
+    margin-top: 30px;
+    background-color: #111; /* Slightly different background to stand out */
+    border-radius: 8px;
+}
+
+.comments-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+#comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#comment-form input,
+#comment-form textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background-color: #222;
+    color: #fff;
+    font-family: inherit;
+}
+
+#comment-form button {
+    align-self: flex-start;
+    padding: 10px 20px;
+    background-color: #e50914; /* Example button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.comments-display-area {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.comment {
+    background-color: #1c1c1c;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.comment-author {
+    font-weight: bold;
+    color: #fff;
+}
+
+.comment-timestamp {
+    font-size: 12px;
+    color: #888;
+}
+
+.comment-body {
+    color: #ccc;
+    line-height: 1.5;
+}
+/* Add this to your detail.css file */
+
+.comment-actions button {
+    background: #333;      /* A subtle background color */
+    border: none;
+    color: #aaa;           /* A light grey text color */
+    cursor: pointer;
+    font-size: 13px;        /* Slightly larger font */
+    font-weight: bold;
+    padding: 6px 12px;      /* Add some padding */
+    border-radius: 5px;     /* Rounded corners */
+    transition: all 0.2s ease; /* Smooth transition for hover effects */
+}
+
+/* Style the delete button to be more distinct */
+.comment-actions .delete-btn {
+    background-color: transparent; /* Make it look like a link */
+    color: #888;
+}
+
+.comment-actions .delete-btn:hover {
+    background-color: #a92020; /* Red background on hover */
+    color: #fff;              /* White text on hover */
+}
+
+/* Style the edit/save button */
+.comment-actions .edit-btn:hover,
+.comment-actions .save-btn:hover {
+    background-color: #555;   /* Darken background on hover */
+    color: #fff;             /* White text on hover */
+}
+
+.comment-actions .save-btn {
+    background-color: #2a7a2a; /* Green background when in "Save" mode */
+    color: #fff;
 }

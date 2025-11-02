@@ -55,6 +55,26 @@
     <div id="main">
 
     </div>
+    <section class="cast-section">
+    <h2>Cast</h2>
+    <div class="cast-grid" id="cast-grid">
+
+    </div>
+    </section>
+
+    <section class="comments-section">
+    <h2>Comments</h2>
+    <div class="comment-form-container">
+        <form id="comment-form">
+            <input type="text" id="comment-author" placeholder="Your name" required>
+            <textarea id="comment-text" placeholder="Write a comment..." rows="4" required></textarea>
+            <button type="submit">Post Comment</button>
+        </form>
+    </div>
+    <div class="comments-display-area" id="comments-display-area">
+        <!-- Comments will be dynamically inserted here -->
+    </div>
+    </section>
 
 
     <footer>
@@ -76,6 +96,8 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script type="module" src="./scripts/detail.js"></script>
     <script type="module" src="./scripts/home.js"></script>
+    <script type="module" src="./scripts/cast.js"></script>
+    <script type="module" src="./scripts/comment.js"></script>
 </body>
 
 </html>
